@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="InfluxDB.Client" Version="4.17.0" />
     <PackageReference Include="Iot.Device.Bindings" Version="3.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="7.3.0" />
     <PackageReference Include="MQTTnet" Version="4.3.7.1207" />
     <PackageReference Include="Quartz.AspNetCore" Version="3.13.0" />
   </ItemGroup>

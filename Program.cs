@@ -1,5 +1,4 @@
 using Quartz;
-using Quartz.AspNetCore;
 using RaspiTempLogger.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton<IInfluxDbConnector, InfluxDbConnector>();
+builder.Services.AddOptions<BmeConfig>()
+    .Bind(builder.Configuration.GetRequiredSection(nameof(BmeConfig)))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+builder.Services.AddSingleton<IBmeSensorModel, BmeSensorModel>();
 
 builder.Services.AddQuartzHostedService(q =>
 {
