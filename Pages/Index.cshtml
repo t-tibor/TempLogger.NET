@@ -8,8 +8,23 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
-<div class="text-center">
-    <h1 class="display-4">Current temperature</h1>
-    <p>Learn about @{model.Temperature}}</p>
-</div>
+<table>
+    <thead>
+        <td>Name</td>
+        <td>Value</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Temperature</td>
+            <td>@Model.MeasurementData.TempDegC</td>
+        </tr>
+        <tr>
+            <td>Pressure</td>
+            <td>@Model.MeasurementData.PressMbar</td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td>@Model.MeasurementData.HumP</td>
+        </tr>
+    </tbody>
+</table>

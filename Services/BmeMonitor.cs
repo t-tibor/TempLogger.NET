@@ -4,21 +4,6 @@ using InfluxDB.Client.Writes;
 
 namespace RaspiTempLogger.Services
 {
-
-
-
-    public class BmeMonitor(
-		ILogger<BmeMonitor> logger,
-		IInfluxDbConnector influxDbConnector,
-		IMqttConnector mqttConnector)
-		: IJob
-	{
-		private readonly BmeMonitorConfig _config = configOptions.Value;
-
-		public async Task Execute(IJobExecutionContext context)
-		{
-
-		}
 /*
 		private void backup()
 		{
@@ -40,6 +25,7 @@ namespace RaspiTempLogger.Services
 						.Build()
 				);
 		}
-		*/
+		
 	}
+	*/
 }

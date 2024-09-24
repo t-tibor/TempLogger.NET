@@ -8,14 +8,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddOptions<BmeConfig>()
     .Bind(builder.Configuration.GetRequiredSection(nameof(BmeConfig)))
-    .ValidateDataAnnotations()
-    .ValidateOnStart();
-builder.Services.AddSingleton<IBmeSensorModel, BmeSensorModel>();
-
-builder.Services.AddQuartzHostedService(q =>
-{
-	q.WaitForJobsToComplete = true;
-});
+    .ValidateDataAnnotations();
+builder.Services.AddSingleton<IBmeSensorModel, FakeBmeSensorMode>();
 
 var app = builder.Build();
 

@@ -7,9 +7,9 @@ namespace RaspiTempLogger.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly IBmeSensorModel bmeSensorModel;
+    private readonly IBmeSensorModel _bmeSensorModel;
 
-    public double Temperature { get; set; }
+    public BmeMeasDataDto MeasurementData { get; set; }
 
     public IndexModel(
         ILogger<IndexModel> logger,
@@ -17,11 +17,11 @@ public class IndexModel : PageModel
         )
     {
         _logger = logger;
+        _bmeSensorModel = bmeSensorModel;
     }
 
     public async Task OnGet()
     {
-        var dto = await bmeSensorModel.ReadSensor();
-        this.Temperature = dto.TempDegC;
+        MeasurementData = await _bmeSensorModel.ReadSensor();
     }
 }
